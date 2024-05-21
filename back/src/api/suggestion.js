@@ -12,10 +12,8 @@ router.post('/suggestions', async (req, res) => {
     for (const suggestionData of suggestionsData) {
       const { content, questionId ,note } = suggestionData;
 
-      // Créer la suggestion
       const newSuggestion = await Suggestion.create({ content, questionId ,note });
 
-      // Ajouter la suggestion créée au tableau des suggestions créées
       createdSuggestions.push(newSuggestion);
     }
 

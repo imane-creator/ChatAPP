@@ -1,4 +1,3 @@
-// ** React Imports
 import { forwardRef, useState } from 'react'
 
 // ** MUI Imports

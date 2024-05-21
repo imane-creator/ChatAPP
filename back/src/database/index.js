@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 // Création d'un nouvel objet Sequelize
 const sequelize = new Sequelize(
-    'dbS',
+    'dbChatApp1',
     'root',
     '', {
         dialect: 'mysql',

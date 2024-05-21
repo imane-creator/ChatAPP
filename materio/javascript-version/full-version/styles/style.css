@@ -14,6 +14,9 @@ body
     position: relative;
     height: auto;
 }
+
+
+
 main
 {
     width: 100%;
@@ -204,6 +207,27 @@ line-break: normal;
   transition: 0.5s ease;
   cursor: pointer;
   opacity: 1;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.card-container {
+  flex: 1 1 700px; /* Allow the card container to expand */
+  max-width: 1000px; /* Ensure it does not exceed the desired width */
+}
+
+.side-inner img {
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.custom-card {
+  width: 100%; /* Adjust the value as needed */
 }
 .form-radio
 {
