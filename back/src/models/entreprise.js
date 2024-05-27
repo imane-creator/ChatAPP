@@ -1,65 +1,66 @@
 // entreprise.js
-const Sequelize = require('sequelize');
-const sequelize = require('../database');
-const User = require('./user');
+const Sequelize = require("sequelize");
+const sequelize = require("../database");
+const User = require("./user");
+const Quiz = require("./quiz");
 
-const Entreprise = sequelize.define('Entreprise', {
+const Entreprise = sequelize.define("Entreprise", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   ICE: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   IF: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   LegalStatus: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   Sector: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
 
   RC: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
-   Goals: {
+  Goals: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
 
   adresse: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
+
   userId: {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
       model: User,
-      key: 'id'
-    }
+      key: "id",
+    },
   },
   // Timestamps
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
 });
-
 
 module.exports = Entreprise;

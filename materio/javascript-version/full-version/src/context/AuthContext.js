@@ -74,18 +74,15 @@ const AuthProvider = ({ children }) => {
         params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
         const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
         router.replace(redirectURL)
-  
-        // Exécuter une action supplémentaire après une connexion réussie, par exemple :
+
         auth.login({ email: params.email, password: params.password, rememberMe }, () => {
-          console.log('Login successful');
-          // Exécuter d'autres actions après une connexion réussie si nécessaire
-        });
+          console.log('Login successful')
+        })
       })
       .catch(err => {
         if (errorCallback) errorCallback(err)
       })
   }
-  
 
   const handleLogout = () => {
     setUser(null)

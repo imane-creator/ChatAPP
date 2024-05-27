@@ -2,27 +2,28 @@
 import mock from 'src/@fake-db/mock'
 
 const navigation = [
-  {
-    icon: 'mdi:home-outline',
-    title: 'Dashboards',
-    children: [
-      {
-        title: 'CRM',
-        icon: 'mdi:chart-donut',
-        path: '/dashboards/crm'
-      },
-      {
-        icon: 'mdi:chart-timeline-variant',
-        title: 'Analytics',
-        path: '/dashboards/analytics'
-      },
-      {
-        icon: 'mdi:cart-outline',
-        title: 'eCommerce',
-        path: '/dashboards/ecommerce'
-      }
-    ]
-  },
+  // {
+  //   icon: 'mdi:home-outline',
+  //   title: 'Dashboards',
+  //   children: [
+  //     {
+  //       title: 'CRM',
+  //       icon: 'mdi:chart-donut',
+  //       path: '/dashboards/crm'
+  //     },
+  //     {
+  //       icon: 'mdi:chart-timeline-variant',
+  //       title: 'Analytics',
+  //       path: '/dashboards/analytics'
+  //     },
+  //     {
+  //       icon: 'mdi:cart-outline',
+  //       title: 'eCommerce',
+  //       path: '/dashboards/ecommerce'
+  //     }
+  //   ]
+  // },
+
   {
     icon: 'mdi:apps',
     title: 'Apps',
@@ -130,7 +131,6 @@ const navigation = [
         icon: 'mdi:google-circles-extended'
       },
       {
-        
         title: 'Cards',
         icon: 'mdi:credit-card-outline',
         children: [
@@ -239,7 +239,7 @@ const navigation = [
           {
             title: 'More',
             path: '/components/more'
-          },
+          }
         ]
       }
     ]
@@ -532,7 +532,7 @@ const navigation = [
           {
             title: 'Input Mask',
             path: '/forms/form-elements/input-mask'
-          },
+          }
         ]
       },
       {

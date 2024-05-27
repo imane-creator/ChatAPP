@@ -10,6 +10,9 @@ import createEmotionServer from '@emotion/server/create-instance'
 // ** Utils Imports
 import { createEmotionCache } from 'src/@core/utils/create-emotion-cache'
 
+// ** Next Script Import
+import Script from 'next/script'
+
 class CustomDocument extends Document {
   render() {
     return (
@@ -27,19 +30,17 @@ class CustomDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src='public/assets/js/bootstrap.min.js'></script>
 
-        <script src="public/code.jquery.com/jquery-3.6.0.min.js"></script>
-
-        <script src="public/assets/js/custom.js"></script>
-
-      <script src="public/assets/js/callswitcher.js"></script>
-
+          <Script src='/assets/js/bootstrap.min.js' strategy='beforeInteractive' />
+          <Script src='https://code.jquery.com/jquery-3.6.0.min.js' strategy='beforeInteractive' />
+          <Script src='/assets/js/custom.js' strategy='beforeInteractive' />
+          <Script src='/assets/js/callswitcher.js' strategy='beforeInteractive' />
         </body>
       </Html>
     )
   }
 }
+
 CustomDocument.getInitialProps = async ctx => {
   const originalRenderPage = ctx.renderPage
   const cache = createEmotionCache()

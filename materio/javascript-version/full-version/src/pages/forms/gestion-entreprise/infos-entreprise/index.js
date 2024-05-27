@@ -1,4 +1,3 @@
-// ** MUI Imports
 import Grid from '@mui/material/Grid'
 import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
@@ -16,12 +15,9 @@ const GestionEntreprise = () => {
   return (
     <DatePickerWrapper>
       <Grid container spacing={6} className='match-height'>
-        
         <Grid item xs={12}>
           <GestionEntrepriseBasic />
         </Grid>
-
-
       </Grid>
     </DatePickerWrapper>
   )

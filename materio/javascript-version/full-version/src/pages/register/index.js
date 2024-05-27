@@ -24,9 +24,7 @@ import Typography from '@mui/material/Typography'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
-import { useRouter } from 'next/router';
-
-
+import { useRouter } from 'next/router'
 
 // ** Third Party Imports
 import * as yup from 'yup'
@@ -46,16 +44,12 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 
-
-
 const defaultValues = {
   email: '',
   fullName: '',
   password: '',
   terms: false
 }
-
-
 
 // ** Styled Components
 const RegisterIllustrationWrapper = styled(Box)(({ theme }) => ({
@@ -66,15 +60,12 @@ const RegisterIllustrationWrapper = styled(Box)(({ theme }) => ({
   }
 }))
 
-
-
 const RegisterIllustration = styled('img')(({ theme }) => ({
   maxWidth: '46rem',
   [theme.breakpoints.down('lg')]: {
     maxWidth: '35rem'
   }
 }))
-
 
 const TreeIllustration = styled('img')(({ theme }) => ({
   bottom: 0,
@@ -143,12 +134,7 @@ const Register = () => {
     resolver: yupResolver(schema)
   })
 
-
-
-
-
-
-  const router = useRouter();
+  const router = useRouter()
 
   const onSubmit = data => {
     fetch('http://localhost:5000/api/v1/register', {
@@ -158,28 +144,22 @@ const Register = () => {
       },
       body: JSON.stringify(data)
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
-      }
-      return response.json()
-    })
-    .then(data => {
-      console.log(data)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
 
-      router.push('/login')// Gérer la réponse du backend si nécessaire
-    })
-    .catch(error => {
-      console.error('There was an error sending the request:', error)
-    })
+        return response.json()
+      })
+      .then(data => {
+        console.log(data)
+
+        router.push('/login') // Gérer la réponse du backend si nécessaire
+      })
+      .catch(error => {
+        console.error('There was an error sending the request:', error)
+      })
   }
-
-
-
-
-
-
-
 
   const imageSource = skin === 'bordered' ? 'auth-v2-register-illustration-bordered' : 'auth-v2-register-illustration'
 

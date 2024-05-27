@@ -39,7 +39,7 @@ const defaultValues = {
   IF: '', // Correspond au champ 'IF'
   LegalStatus: '', // Correspond au champ 'LegalStatus'
   Sector: '', // Correspond au champ 'Sector'
-  Goals: '',// Correspond au champ 'textarea'
+  Goals: '', // Correspond au champ 'textarea'
   checkbox: false
 }
 
@@ -57,57 +57,52 @@ const GestionEntrepriseBasic = () => {
     reset,
     formState: { errors }
   } = useForm({ defaultValues })
-  const [formData, setFormData] = useState(defaultValues);
-  const [savedInfo, setSavedInfo] = useState(null);
-  const [showSavedCard, setShowSavedCard] = useState(false);
+  const [formData, setFormData] = useState(defaultValues)
+  const [savedInfo, setSavedInfo] = useState(null)
+  const [showSavedCard, setShowSavedCard] = useState(false)
 
-
-
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
-      const userId = localStorage.getItem('userId');
-      const formData = { ...data, userId: userId };
+      const userId = localStorage.getItem('userId')
+      const formData = { ...data, userId: userId }
 
-      let url = 'http://localhost:5000/api/v1/entreprise';
-      let method = 'POST'; // Default method is POST for creating new data
+      let url = 'http://localhost:5000/api/v1/entreprise'
+      let method = 'POST' // Default method is POST for creating new data
 
       if (savedInfo) {
-        url += `/${savedInfo.id}`;
-        method = 'PUT'; // Change method to PUT for updating existing data
+        url += `/${savedInfo.id}`
+        method = 'PUT' // Change method to PUT for updating existing data
       }
 
       const response = await fetch(url, {
         method: method,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData),
-      });
+        body: JSON.stringify(formData)
+      })
 
       if (!response.ok) {
-        throw new Error('Error sending form data');
+        throw new Error('Error sending form data')
       }
 
-      const responseData = await response.json();
-      console.log(responseData);
+      const responseData = await response.json()
+      console.log(responseData)
 
-      const entrepriseId = responseData.entreprise.id;
-      localStorage.setItem('entrepriseId', entrepriseId);
-      console.log(entrepriseId);
+      const entrepriseId = responseData.entreprise.id
+      localStorage.setItem('entrepriseId', entrepriseId)
+      console.log(entrepriseId)
 
-      toast.success('Form Submitted');
-      setSavedInfo(responseData.entreprise);
-      setShowSavedCard(true);
-      reset();
-      setFormData(defaultValues);
+      toast.success('Form Submitted')
+      setSavedInfo(responseData.entreprise)
+      setShowSavedCard(true)
+      reset()
+      setFormData(defaultValues)
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Error submitting form');
+      console.error('Error submitting form:', error)
+      toast.error('Error submitting form')
     }
-  };
-
-
-
+  }
 
   return (
     <Card>
@@ -126,7 +121,6 @@ const GestionEntrepriseBasic = () => {
                       value={value}
                       label='name'
                       onChange={onChange}
-
                       error={Boolean(errors.name)}
                       aria-describedby='validation-basic-name'
                     />
@@ -151,7 +145,6 @@ const GestionEntrepriseBasic = () => {
                       value={value}
                       label='adresse'
                       onChange={onChange}
-
                       error={Boolean(errors.adresse)}
                       aria-describedby='validation-basic-adresse'
                     />
@@ -178,7 +171,6 @@ const GestionEntrepriseBasic = () => {
                       label='Email'
                       onChange={onChange}
                       error={Boolean(errors.email)}
-
                       aria-describedby='validation-basic-email'
                     />
                   )}
@@ -190,7 +182,6 @@ const GestionEntrepriseBasic = () => {
                 )}
               </FormControl>
             </Grid>
-
 
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
@@ -205,7 +196,6 @@ const GestionEntrepriseBasic = () => {
                       label='ICE'
                       onChange={onChange}
                       error={Boolean(errors.goals)}
-
                       aria-describedby='validation-basic-ICE'
                     />
                   )}
@@ -217,7 +207,6 @@ const GestionEntrepriseBasic = () => {
                 )}
               </FormControl>
             </Grid>
-
 
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
@@ -232,7 +221,6 @@ const GestionEntrepriseBasic = () => {
                       label='RC'
                       onChange={onChange}
                       error={Boolean(errors.goals)}
-
                       aria-describedby='validation-basic-RC'
                     />
                   )}
@@ -258,7 +246,6 @@ const GestionEntrepriseBasic = () => {
                       label='IF'
                       onChange={onChange}
                       error={Boolean(errors.goals)}
-
                       aria-describedby='validation-basic-IF'
                     />
                   )}
@@ -283,7 +270,6 @@ const GestionEntrepriseBasic = () => {
                       label='Legal status'
                       onChange={onChange}
                       error={Boolean(errors.goals)}
-
                       aria-describedby='validation-basic-Legal status'
                     />
                   )}
@@ -308,7 +294,6 @@ const GestionEntrepriseBasic = () => {
                       label='Sector'
                       onChange={onChange}
                       error={Boolean(errors.goals)}
-
                       aria-describedby='validation-basic-Sector'
                     />
                   )}
@@ -344,7 +329,6 @@ const GestionEntrepriseBasic = () => {
                 )}
               </FormControl>
             </Grid>
-
 
             <Grid item xs={12}>
               <FormControl>
@@ -418,33 +402,29 @@ const GestionEntrepriseBasic = () => {
                 <Grid item xs={12}>
                   <Typography variant='body1'>Goals: {savedInfo.Goals}</Typography>
                 </Grid>
-
               </Grid>
             </CardContent>
-
           </Card>
         </CardContent>
       )}
 
-{savedInfo && (
-  <CardContent>
-    <Button
-      variant='contained'
-      color='primary'
-      onClick={() => {
-        // Populate form fields with savedInfo
-        reset(savedInfo); // Set the default form values to the savedInfo data
-        setShowSavedCard(false); // Hide the saved card when editing
-      }}
-    >
-      Edit
-    </Button>
-  </CardContent>
-)}
+      {savedInfo && (
+        <CardContent>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={() => {
+              // Populate form fields with savedInfo
+              reset(savedInfo) // Set the default form values to the savedInfo data
+              setShowSavedCard(false) // Hide the saved card when editing
+            }}
+          >
+            Edit
+          </Button>
+        </CardContent>
+      )}
     </Card>
-
   )
-
 }
 
 export default GestionEntrepriseBasic

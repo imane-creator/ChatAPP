@@ -2,26 +2,27 @@
 import mock from 'src/@fake-db/mock'
 
 const navigation = [
-  {
-    title: 'Dashboards',
-    icon: 'mdi:home-outline',
-    badgeContent: 'new',
-    badgeColor: 'error',
-    children: [
-      {
-        title: 'CRM',
-        path: '/dashboards/crm'
-      },
-      {
-        title: 'Analytics',
-        path: '/dashboards/analytics'
-      },
-      {
-        title: 'eCommerce',
-        path: '/dashboards/ecommerce'
-      }
-    ]
-  },
+  // {
+  //   title: 'Dashboards',
+  //   icon: 'mdi:home-outline',
+  //   badgeContent: 'new',
+  //   badgeColor: 'error',
+  //   children: [
+  //     {
+  //       title: 'CRM',
+  //       path: '/dashboards/crm'
+  //     },
+  //     {
+  //       title: 'Analytics',
+  //       path: '/dashboards/analytics'
+  //     },
+  //     {
+  //       title: 'eCommerce',
+  //       path: '/dashboards/ecommerce'
+  //     }
+  //   ]
+  // },
+
   {
     sectionTitle: 'Apps & Pages'
   },
@@ -348,7 +349,6 @@ const navigation = [
     icon: 'mdi:google-circles-extended'
   },
   {
-    
     title: 'Cards',
     icon: 'mdi:credit-card-outline',
     children: [
@@ -459,7 +459,7 @@ const navigation = [
       {
         title: 'More',
         path: '/components/more'
-      },
+      }
     ]
   },
   {
@@ -520,7 +520,7 @@ const navigation = [
       {
         title: 'Input Mask',
         path: '/forms/form-elements/input-mask'
-      },
+      }
     ]
   },
   {

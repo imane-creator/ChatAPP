@@ -138,46 +138,45 @@ const LoginPage = () => {
       },
       body: JSON.stringify(data)
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json(); // Convertir la réponse en JSON
-      
-    })
-    .then(data => {
-      // Utiliser les données de la réponse
-      const { token, userId } = data;
-  
-      // Stocker les données dans le localStorage ou sessionStorage si nécessaire
-      localStorage.setItem('token', token);
-      localStorage.setItem('userId', userId);
-  
-  const userIde = localStorage.getItem('userId');
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        return response.json()
 
-// Vérifier si userId est défini dans localStorage
-if (userId) {
-  console.log('L\'ID utilisateur est enregistré dans localStorage :', userIde);
-} else {
-  console.log('L\'ID utilisateur n\'est pas enregistré dans localStorage.');
-}
+        // Convertir la réponse en JSON
+      })
+      .then(data => {
+        // Utiliser les données de la réponse
+        const { token, userId } = data
 
-const { email, password } = data
-auth.login({ email, password, rememberMe }, () => {
-  setError('email', {
-    type: 'manual',
-    message: 'Email or Password is invalid'
-  })
-})
-    })
-    .catch(error => {
-      // Gérer les erreurs ici
-      console.error('Error:', error);
-    });
-  };
-  
-  
-  
+        // Stocker les données dans le localStorage ou sessionStorage si nécessaire
+        localStorage.setItem('token', token)
+        localStorage.setItem('userId', userId)
+
+        const userIde = localStorage.getItem('userId')
+
+        // Vérifier si userId est défini dans localStorage
+        if (userId) {
+          console.log("L'ID utilisateur est enregistré dans localStorage :", userIde)
+        } else {
+          console.log("L'ID utilisateur n'est pas enregistré dans localStorage.")
+        }
+
+        const { email, password } = data
+        auth.login({ email, password, rememberMe }, () => {
+          setError('email', {
+            type: 'manual',
+            message: 'Email or Password is invalid'
+          })
+        })
+      })
+      .catch(error => {
+        // Gérer les erreurs ici
+        console.error('Error:', error)
+      })
+  }
+
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
   return (

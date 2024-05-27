@@ -2,27 +2,28 @@
 import mock from 'src/@fake-db/mock'
 
 const searchData = [
-  {
-    id: 1,
-    url: '/dashboards/crm',
-    icon: 'mdi:chart-donut',
-    title: 'CRM Dashboard',
-    category: 'dashboards'
-  },
-  {
-    id: 2,
-    url: '/dashboards/analytics',
-    icon: 'mdi:chart-timeline-variant',
-    title: 'Analytics Dashboard',
-    category: 'dashboards'
-  },
-  {
-    id: 3,
-    url: '/dashboards/ecommerce',
-    icon: 'mdi:cart-outline',
-    title: 'eCommerce Dashboard',
-    category: 'dashboards'
-  },
+  // {
+  //   id: 1,
+  //   url: '/dashboards/crm',
+  //   icon: 'mdi:chart-donut',
+  //   title: 'CRM Dashboard',
+  //   category: 'dashboards'
+  // },
+  // {
+  //   id: 2,
+  //   url: '/dashboards/analytics',
+  //   icon: 'mdi:chart-timeline-variant',
+  //   title: 'Analytics Dashboard',
+  //   category: 'dashboards'
+  // },
+  // {
+  //   id: 3,
+  //   url: '/dashboards/ecommerce',
+  //   icon: 'mdi:cart-outline',
+  //   title: 'eCommerce Dashboard',
+  //   category: 'dashboards'
+  // },
+
   {
     id: 4,
     url: '/apps/email',
